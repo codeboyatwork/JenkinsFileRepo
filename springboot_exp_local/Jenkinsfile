@@ -1,5 +1,10 @@
 pipeline {
     agent any 
+    tools {
+	  git 'Default'
+	  jdk 'JDK11'
+	  maven 'maven'
+	}
     stages {
         stage('Clone Repo') {   
             steps {

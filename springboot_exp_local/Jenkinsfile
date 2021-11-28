@@ -1,0 +1,24 @@
+pipeline {
+    agent any 
+    stages {
+        stage('Clone Repo') {   
+            steps {
+	           git 'https://github.com/codeboyatwork/springbootexp.git'      
+            }
+	    }
+        stage('unit test') {
+            steps {
+                withMaven(globalMavenSettingsConfig: '4f2774bb-f2c8-4a26-a04f-2ac2617b8281', maven: 'maven') {
+                    bat "mvn clean test -Dtest=com.experiment.demo.unittests.**.*Test*"
+                }
+            }
+        }
+        stage('Integration test') {
+            steps {
+                withMaven(globalMavenSettingsConfig: '4f2774bb-f2c8-4a26-a04f-2ac2617b8281', maven: 'maven') {
+                    bat "mvn clean test -Dtest=com.experiment.demo.integrationtests.**.*Test*"
+                }
+            }
+        }
+    }
+}

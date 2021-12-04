@@ -1,0 +1,21 @@
+pipeline {
+    agent any 
+    tools {
+	  git 'Default'
+	  jdk 'JDK11'
+	  gradle 'gradle'
+	}
+    stages {
+        stage('Clone Repo') {   
+            steps {
+	           git 'https://github.com/codeboyatwork/gradle_demo.git'      
+            }
+	    }
+        stage('unit test') {
+            steps {
+                withGradle {
+                    bat "gradle build"
+                }
+            }
+    }
+}

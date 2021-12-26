@@ -1,0 +1,24 @@
+pipeline {
+    agent any 
+    tools {
+	  git 'Default'
+	  jdk 'JDK11'
+	  maven 'maven'
+	}
+    stages {
+        stage('Clone Repo') {   
+            steps {
+	           git 'https://github.com/codeboyatwork/JenkinsFileRepo.git'      
+            }
+	    }
+        stage('Selenium test') {
+            steps {
+              dir('seleniumL'){
+                withMaven(globalMavenSettingsConfig: '4f2774bb-f2c8-4a26-a04f-2ac2617b8281', maven: 'maven') {
+                    bat "mvn verify"
+                }
+              }
+            }
+        }
+    }
+}

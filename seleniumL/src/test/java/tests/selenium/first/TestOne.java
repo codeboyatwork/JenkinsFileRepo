@@ -36,7 +36,7 @@ public class TestOne {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        assertEquals(true, true);
+        assertEquals(driver.getTitle(), "Google");
     }
     
     @AfterClass

@@ -3,6 +3,12 @@
 	<groupId>seleniumLatest</groupId>
 	<artifactId>seleniumL</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<properties>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -24,9 +30,9 @@
 			<artifactId>selenium-java</artifactId>
 		</dependency>
 		<dependency>
-				<groupId>org.testng</groupId>
-				<artifactId>testng</artifactId>
-				<scope>test</scope>
-			</dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 </project>

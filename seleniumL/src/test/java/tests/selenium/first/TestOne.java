@@ -21,7 +21,6 @@ public class TestOne {
     
     @BeforeClass
     public void prepareEnvironment( ) {
-        System.setProperty("webdriver.chrome.driver", "D:\\chromedriver.exe");
         driver = new ChromeDriver();
     }
     
